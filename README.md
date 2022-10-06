@@ -19,39 +19,7 @@ If you have only a single data source for Db2, map all data source references to
             <feature>localConnector-1.0</feature>
         </featureManager>
         <keyStore password="xxxx"/> 
-        <httpEndpoint <server>
-    <featureManager>
-        <feature>webProfile-8.0</feature>
-        <feature>localConnector-1.0</feature>
-    </featureManager>
-    <httpEndpoint host="*" httpPort="9080" httpsPort="9443" id="defaultHttpEndpoint"/>
-    <dataSource containerAuthDataRef="SampleAD" id="SampleDS" jdbcDriverRef="SampleJD" jndiName="jdbc/sample">
-        <properties.db2.jcc databaseName="sample" portNumber="50000" serverName="oden"/>
-    </dataSource>
-    <authData id="SampleAD" password="db2inst1" user="db2inst1"/>
-    <jdbcDriver id="SampleJD">
-        <library>
-        <fileset dir="/opt/IBM/db2/V11.1/java" includes="db2jcc4.jar"/>
-        </library>
-    </jdbcDriver>
-    <applicationMonitor updateTrigger="polled"/>
-    <applicationManager autoExpand="true"/>
-    <webApplication
-        id="JdbcConnectionTest"
-        name="JdbcConnectionTest"
-        location="JdbcConnectionTest.war">
-        <web-bnd>
-            <resource-ref name="jdbc/DS01" binding-name="jdbc/sample" />
-            <resource-ref name="jdbc/DS02" binding-name="jdbc/sample" />
-            <resource-ref name="jdbc/DS03" binding-name="jdbc/sample" />
-            <resource-ref name="jdbc/DS04" binding-name="jdbc/sample" />
-            <resource-ref name="jdbc/DS05" binding-name="jdbc/sample" />
-        </web-bnd>
-        <web-ext>
-            <file-serving-attribute value="true"/>
-        </web-ext>
-    </webApplication>
-</server>httpPort="9080" httpsPort="9443" id="defaultHttpEndpoint"/>
+        <httpEndpoint host="*" httpPort="9080" httpsPort="9443" id="defaultHttpEndpoint"/>
         <dataSource containerAuthDataRef="SampleAD" id="SampleDS" jdbcDriverRef="SampleJD" jndiName="jdbc/sample">
             <properties.db2.jcc databaseName="sample" portNumber="50000" serverName="xxxxx"/>
         </dataSource>
