@@ -1,5 +1,6 @@
 <%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@page session="false" %>
+<%@page import="javax.naming.InitialContext"%>
 <html>
 
 <head>
@@ -12,6 +13,8 @@
 <h2>ServerName.jsp</h2>
 
 <h3>HostName=<%=java.net.InetAddress.getLocalHost().getHostName()%></h3>
+
+<h3>ServerName=<%=(String) (new InitialContext()).lookup( "java:comp/env/serverName" )%></h3>
 
 <hr>
 

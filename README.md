@@ -36,11 +36,12 @@ If you have only a single data source for Db2, map all data source references to
             name="JdbcConnectionTest"
             location="JdbcConnectionTest.war"> 
             <web-bnd>
-                <resource-ref name="jdbc/DS01" binding-name="jdbc/sample" />
-                <resource-ref name="jdbc/DS02" binding-name="jdbc/sample" />
-                <resource-ref name="jdbc/DS03" binding-name="jdbc/sample" />
-                <resource-ref name="jdbc/DS04" binding-name="jdbc/sample" />
-                <resource-ref name="jdbc/DS05" binding-name="jdbc/sample" />
+                <resource-ref name="jdbc/DS01"  binding-name="jdbc/sample" />
+                <resource-ref name="jdbc/DS02"  binding-name="jdbc/sample" />
+                <resource-ref name="jdbc/DS03"  binding-name="jdbc/sample" />
+                <resource-ref name="jdbc/DS04"  binding-name="jdbc/sample" />
+                <resource-ref name="jdbc/DS05"  binding-name="jdbc/sample" />
+                <env-entry    name="serverName" value="${wlp.server.name}"/>
             </web-bnd>
             <web-ext>
                 <file-serving-attribute value="true"/>
