@@ -4,13 +4,13 @@
 <html>
 
 <head>
-<title>ServerName.jsp</title>
+<title>serverName.jsp</title>
 <meta http-equiv="content-type" content="text/html; charset=Shift_JIS">
 </head>
 
 <body>
 
-<h2>ServerName.jsp</h2>
+<h2>serverName.jsp</h2>
 
 <h3>HostName=<%=java.net.InetAddress.getLocalHost().getHostName()%></h3>
 
