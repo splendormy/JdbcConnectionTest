@@ -1,7 +1,9 @@
 <%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@page session="false" %>
+<%@page import="java.util.Arrays"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.Map"%>
+<%@page import="javax.naming.InitialContext"%>
 <html>
 
 <head>
@@ -13,16 +15,24 @@
 
 <h2>showEnv.jsp</h2>
 
+<h3>
+HostName=<%=java.net.InetAddress.getLocalHost().getHostName()%>
+</h3>
+<h3>
+ServerName=<%=(String) (new InitialContext()).lookup( "java:comp/env/serverName" )%>
+</h3>
+
 <table border="1">
 <tr>
 <th align="left">Key</th><th align="left">Value</th>
 </tr>
 <%
 Map<String,String> envs = System.getenv();
-Iterator<String> i = envs.keySet().iterator();
+Object[] sortedKey = envs.keySet().toArray();
+Arrays.sort( sortedKey );
 String key, val;
-while ( i.hasNext() ) {
-	key = i.next();
+for ( int i =0; i < sortedKey.length; i++ ) {
+	key = (String) sortedKey[i];
 	val = envs.get(key);
 %>
 <tr>

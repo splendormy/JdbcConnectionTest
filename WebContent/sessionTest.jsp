@@ -1,5 +1,6 @@
 <%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@page session="true" %>
+<%@page import="javax.naming.InitialContext"%>
 <html>
 
 <head>
@@ -11,7 +12,12 @@
 
 <h2>sessionTest.jsp</h2>
 
-<h3>HostName=<%=java.net.InetAddress.getLocalHost().getHostName()%></h3>
+<h3>
+HostName=<%=java.net.InetAddress.getLocalHost().getHostName()%>
+</h3>
+<h3>
+ServerName=<%=(String) (new InitialContext()).lookup( "java:comp/env/serverName" )%>
+</h3>
 
 <%
 Integer count = (Integer) session.getAttribute( "count" );
@@ -20,7 +26,9 @@ if ( count == null ) count = new Integer( 0 );
 
 <p>
 <hr>
-<h3>count=<%=count%></h3>
+<h3>
+count=<%=count%>
+</h3>
 <hr>
 
 <%
