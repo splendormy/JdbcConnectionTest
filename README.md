@@ -43,8 +43,7 @@ If you have only a single data source for Db2, map all data source references to
                 <resource-ref name="jdbc/DS05"  binding-name="jdbc/sample" />
                 <env-entry    name="serverName" value="${wlp.server.name}"/>
             </web-bnd>
-            <web-ext>
-                <file-serving-attribute value="true"/>
+            <web-ext enable-file-serving="true">
             </web-ext>
         </webApplication>
     </server>
